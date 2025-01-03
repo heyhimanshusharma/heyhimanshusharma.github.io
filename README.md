@@ -4,6 +4,9 @@
 
 ## Education
 - B.E. Automation & Robotics
+
+## About
+Currently a 3rd Year Robotics students i spend most of my time reading evolution, astronomy, biology, biomechanics robotics etc.
   
 ## Projects
 ### Manipulator Arm
