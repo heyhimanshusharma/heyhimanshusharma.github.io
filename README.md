@@ -1,6 +1,7 @@
 # Robotics Engineer
 
-#### Technical Skills: Python, MATLAB
+#### Skills: Python, MATLAB.
+#### Tech: Fusion 360, Figma.
 
 ## Education
 - B.E. Automation & Robotics
