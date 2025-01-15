@@ -1,13 +1,13 @@
 # Robotics Engineer
 
-#### Skills: Python, MATLAB.
-#### Tech: Fusion 360, Figma.
+#### Skills: Python, MATLAB, OpenCV, Manim.
+#### Tech: Ansys, Fusion 360, Figma.
 
 ## Education
 - B.E. Automation & Robotics
 
 ## About
-Currently a 3rd Year Robotics students i spend most of my time reading evolution, astronomy, biology, biomechanics, robotics etc.
+Currently a 3rd Year Robotics students i spend most of my time reading about evolution, astronomy, biology, biomechanics, robotics or textbook maxxing.
   
 ## Projects
 ### Manipulator Arm
