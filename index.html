@@ -113,6 +113,26 @@
             font-size: 0.9rem;
         }
         
+        /* Resume button styles */
+        .resume-btn {
+            display: inline-block;
+            background-color: #0366d6;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            transition: background-color 0.2s ease;
+        }
+        
+        .resume-btn:hover {
+            background-color: #0250a0;
+            text-decoration: none;
+        }
+        
+        .header-links {
+            margin-top: 1rem;
+        }
+        
         /* Responsive adjustments */
         @media (max-width: 600px) {
             h1 {
@@ -129,6 +149,9 @@
     <header>
         <h1>Himanshu Sharma</h1>
         <p>Robotics Engineer</p>
+        <div class="header-links">
+            <a href="path/to/your/resume.pdf" download class="resume-btn">Download Resume</a>
+        </div>
     </header>
     
     <section class="bio">
@@ -181,6 +204,7 @@
         <h2>Get In Touch</h2>
         <p>Interested in working together? Feel free to reach out :)</p>
         <p><a href="mailto:heyhimanshusharma@icloud.com">heyhimanshusharma@icloud.com</a></p>
+        <p><a href="path/to/your/resume.pdf" download class="resume-btn">Download My Resume</a></p>
     </section>
     
     <footer>
