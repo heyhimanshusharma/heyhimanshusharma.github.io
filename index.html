@@ -16,9 +16,9 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             line-height: 1.6;
             color: #333;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
+            /* Removed max-width and adjusted margin to fill the entire width */
+            margin: 0;
+            padding: 0;
         }
         
         /* Typography */
@@ -57,13 +57,43 @@
         header {
             margin-bottom: 3rem;
             text-align: center;
+            width: 100%;
         }
         
+        /* Content container to add some padding to all sections */
+        .content-container {
+            padding: 0 2rem;
+            width: 100%;
+        }
+        
+        /* Profile container with banner background */
         .profile-container {
+            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
             margin-bottom: 1.5rem;
+            padding-top: 50px;
+            padding-bottom: 30px;
+            background-image: url('assets/banner.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 0; /* Removed border radius to make it flush with edges */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 100%;
+        }
+        
+        /* Optional overlay to ensure text readability */
+        .profile-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.5); /* Semi-transparent white overlay */
+            border-radius: 0; /* Removed border radius */
+            z-index: 0;
         }
         
         .profile-pic {
@@ -71,9 +101,16 @@
             height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 1.5rem;
-            border: 3px solid #f1f8ff;
+            border: 4px solid white;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            z-index: 1;
+            position: relative;
+        }
+        
+        .profile-info {
+            z-index: 1;
+            position: relative;
+            margin-top: 1rem;
         }
         
         .bio {
@@ -86,6 +123,7 @@
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 2rem;
             margin-bottom: 3rem;
+            width: 100%;
         }
         
         .project-card {
@@ -105,6 +143,7 @@
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 2rem;
             margin-bottom: 3rem;
+            width: 100%;
         }
         
         .blog-card {
@@ -127,6 +166,7 @@
         
         .skills {
             margin-bottom: 3rem;
+            width: 100%;
         }
         
         .skill-list {
@@ -146,6 +186,7 @@
         .contact {
             text-align: center;
             margin-top: 2rem;
+            width: 100%;
         }
         
         footer {
@@ -153,6 +194,8 @@
             text-align: center;
             color: #666;
             font-size: 0.9rem;
+            width: 100%;
+            padding: 1rem 0;
         }
         
         /* Resume button styles */
@@ -184,97 +227,110 @@
             .projects, .blogs {
                 grid-template-columns: 1fr;
             }
+            
+            .profile-container {
+                padding-top: 30px;
+                padding-bottom: 20px;
+            }
+            
+            .profile-pic {
+                width: 150px;
+                height: 150px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="profile-container">
-            <!-- Replace with your actual profile image -->
             <img src="assets/Profile.jpg" alt="Himanshu Sharma" class="profile-pic">
-            <h1>Himanshu Sharma</h1>
-            <p>Robotics Engineer</p>
+            <div class="profile-info">
+                <h1>Himanshu Sharma</h1>
+                <p>Robotics Engineer</p>
+            </div>
         </div>
     </header>
     
-    <section class="bio">
-        <p>Eh what's up doc?, I'm a budding Automation & Robotics engineer and more importantly a learner. I love Art & Science and everything at their intersection like biomimicry, evolutionary design thinking, humanoids, etc.</p>
-    </section>
-    
-    <section>
-        <h2>Projects</h2>
-        <div class="projects">
-            <div class="project-card">
-                <h3>Manipulator</h3>
-                <p>Built a robotic arm (not from scratch tho) with teleoperation using gesture control using Esp32. Implemented electronics and software using C++ </p>
-                <a href="https://github.com/heyhimanshusharma/Projects/tree/main/Manipulator">View Project →</a>
+    <div class="content-container">
+        <section class="bio">
+            <p>Eh what's up doc?, I'm a budding Automation & Robotics engineer and more importantly a learner. I love Art & Science and everything at their intersection like biomimicry, evolutionary design thinking, humanoids, etc.</p>
+        </section>
+        
+        <section>
+            <h2>Projects</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <h3>Manipulator</h3>
+                    <p>Built a robotic arm (not from scratch tho) with teleoperation using gesture control using Esp32. Implemented electronics and software using C++ </p>
+                    <a href="https://github.com/heyhimanshusharma/Projects/tree/main/Manipulator">View Project →</a>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Rover</h3>
+                    <p>Designed and built a multifunctional rover inspired by perseverance but for agricultural tasks.</p>
+                    <a href="https://github.com/heyhimanshusharma/Projects/tree/main/Rover">View Project →</a>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Icon Pack</h3>
+                    <p>Designed an Icon pack inspired by Nothing OS.</p>
+                    <a href="https://github.com/heyhimanshusharma/Icon-Pack">View Project →</a>
+                </div>
             </div>
-            
-            <div class="project-card">
-                <h3>Rover</h3>
-                <p>Designed and built a multifunctional rover inspired by perseverance but for agricultural tasks.</p>
-                <a href="https://github.com/heyhimanshusharma/Projects/tree/main/Rover">View Project →</a>
+        </section>
+        
+        <section>
+            <h2>Blogs</h2>
+            <div class="blogs">
+                <div class="blog-card">
+                    <p class="blog-date">March 15, 2025</p>
+                    <h3>Why you are a Bioengineered Machine</h3>
+                    <p>Exploring the metaphor of survival machines first coined by Richard Dawkins</p>
+                    <a href="https://substack.com/home/post/p-158690228">Read More →</a>
+                </div>
+                
+                <div class="blog-card">
+                    <p class="blog-date">February 28, 2025</p>
+                    <h3>Biomimicry in Robot Design</h3>
+                    <p>How studying nature's designs can lead to more efficient and adaptable robotic systems.</p>
+                    <a href="https://substack.com/@himanshusharma354221/">Read More →</a>
+                </div>
+                
+                <div class="blog-card">
+                    <p class="blog-date">January 10, 2025</p>
+                    <h3>Evolution of Design Thinking</h3>
+                    <p>My thoughts on how design principles have evolved and their application in modern engineering challenges.</p>
+                    <a href="https://substack.com/@himanshusharma354221/">Read More →</a>
+                </div>
             </div>
-            
-            <div class="project-card">
-                <h3>Icon Pack</h3>
-                <p>Designed an Icon pack inspired by Nothing OS.</p>
-                <a href="https://github.com/heyhimanshusharma/Icon-Pack">View Project →</a>
+        </section>
+        
+        <section class="skills">
+            <h2>Skills & Tech</h2>
+            <div class="skill-list">
+                <span class="skill-tag">Fusion 360</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">MATLAB</span>
+                <span class="skill-tag">LabView</span>
+                <span class="skill-tag">Figma</span>
+                <span class="skill-tag">Latex</span>
+                <span class="skill-tag">Pytorch</span>
             </div>
-        </div>
-    </section>
-    
-    <section>
-        <h2>Blogs</h2>
-        <div class="blogs">
-            <div class="blog-card">
-                <p class="blog-date">March 15, 2025</p>
-                <h3>Why you are a Bioengineered Machine</h3>
-                <p>Exploring the metaphor of survival machines first coined by Richard Dawkins</p>
-                <a href="https://substack.com/home/post/p-158690228">Read More →</a>
-            </div>
-            
-            <div class="blog-card">
-                <p class="blog-date">February 28, 2025</p>
-                <h3>Biomimicry in Robot Design</h3>
-                <p>How studying nature's designs can lead to more efficient and adaptable robotic systems.</p>
-                <a href="https://substack.com/@himanshusharma354221/">Read More →</a>
-            </div>
-            
-            <div class="blog-card">
-                <p class="blog-date">January 10, 2025</p>
-                <h3>Evolution of Design Thinking</h3>
-                <p>My thoughts on how design principles have evolved and their application in modern engineering challenges.</p>
-                <a href="https://substack.com/@himanshusharma354221/">Read More →</a>
-            </div>
-        </div>
-    </section>
-    
-    <section class="skills">
-        <h2>Skills & Tech</h2>
-        <div class="skill-list">
-            <span class="skill-tag">Fusion 360</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">MATLAB</span>
-            <span class="skill-tag">LabView</span>
-            <span class="skill-tag">Figma</span>
-            <span class="skill-tag">Latex</span>
-            <span class="skill-tag">Pytorch</span>
-        </div>
-    </section>
-    
-    <section>
-        <h2>About Me</h2>
-        <p>Ever since I was a kid I was interested in Astronomy and that interest branched me off into other subjects from philosophy to physcis to maths to poetry and what not. Mostly my time is spent reading about evolution, biomechanics, some of it in writing, cooking, listening OSTs, etc. I believe in the human ingenuity and together we can make a better tommorrow.</p>
-        <p>“I have to understand the world, you see” ~ Richard Feynman</p>
-    </section>
-    
-    <section class="contact">
-        <h2>Get In Touch</h2>
-        <p>Interested in working together? Feel free to reach out :)</p>
-        <p><a href="mailto:heyhimanshusharma@gmail.com">heyhimanshusharma@gmail.com</a></p>
-        <p><a href="assets/A&R_Himanshu_Sharma.pdf" download class="resume-btn">Download My Resume</a></p>
-    </section>
+        </section>
+        
+        <section>
+            <h2>About Me</h2>
+            <p>Ever since I was a kid I was interested in Astronomy and that interest branched me off into other subjects from philosophy to physcis to maths to poetry and what not. Mostly my time is spent reading about evolution, biomechanics, some of it in writing, cooking, listening OSTs, etc. I believe in the human ingenuity and together we can make a better tommorrow.</p>
+            <p>"I have to understand the world, you see" ~ Richard Feynman</p>
+        </section>
+        
+        <section class="contact">
+            <h2>Get In Touch</h2>
+            <p>Interested in working together? Feel free to reach out :)</p>
+            <p><a href="mailto:heyhimanshusharma@gmail.com">heyhimanshusharma@gmail.com</a></p>
+            <p><a href="assets/A&R_Himanshu_Sharma.pdf" download class="resume-btn">Download My Resume</a></p>
+        </section>
+    </div>
     
     <footer>
         <p>© 2025 Himanshu Sharma. All rights reserved.</p>
