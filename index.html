@@ -59,6 +59,23 @@
             text-align: center;
         }
         
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 3px solid #f1f8ff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
         .bio {
             margin-bottom: 3rem;
             font-size: 1.2rem;
@@ -81,6 +98,31 @@
         .project-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        
+        .blogs {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .blog-card {
+            border: 1px solid #eee;
+            border-radius: 5px;
+            padding: 1.5rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        
+        .blog-date {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.5rem;
         }
         
         .skills {
@@ -139,7 +181,7 @@
                 font-size: 2rem;
             }
             
-            .projects {
+            .projects, .blogs {
                 grid-template-columns: 1fr;
             }
         }
@@ -147,8 +189,15 @@
 </head>
 <body>
     <header>
-        <h1>Himanshu Sharma</h1>
-        <p>Robotics Engineer</p>
+        <div class="profile-container">
+            <!-- Replace with your actual profile image -->
+            <img src="/api/placeholder/180/180" alt="Himanshu Sharma" class="profile-pic">
+            <h1>Himanshu Sharma</h1>
+            <p>Robotics Engineer</p>
+            <div class="header-links">
+                <a href="assets/A&R_Himanshu_Sharma.pdf" download class="resume-btn">Download Resume</a>
+            </div>
+        </div>
     </header>
     
     <section class="bio">
@@ -174,6 +223,32 @@
                 <h3>Icon Pack</h3>
                 <p>Designed an Icon pack inspired by Nothing OS.</p>
                 <a href="https://github.com/heyhimanshusharma/Icon-Pack">View Project →</a>
+            </div>
+        </div>
+    </section>
+    
+    <section>
+        <h2>Blogs</h2>
+        <div class="blogs">
+            <div class="blog-card">
+                <p class="blog-date">March 15, 2025</p>
+                <h3>The Future of Robotics in Agriculture</h3>
+                <p>Exploring how robotic systems can revolutionize farming practices and address global food security challenges.</p>
+                <a href="https://substack.com/@himanshusharma354221/">Read More →</a>
+            </div>
+            
+            <div class="blog-card">
+                <p class="blog-date">February 28, 2025</p>
+                <h3>Biomimicry in Robot Design</h3>
+                <p>How studying nature's designs can lead to more efficient and adaptable robotic systems.</p>
+                <a href="https://substack.com/@himanshusharma354221/">Read More →</a>
+            </div>
+            
+            <div class="blog-card">
+                <p class="blog-date">January 10, 2025</p>
+                <h3>Evolution of Design Thinking</h3>
+                <p>My thoughts on how design principles have evolved and their application in modern engineering challenges.</p>
+                <a href="https://substack.com/@himanshusharma354221/">Read More →</a>
             </div>
         </div>
     </section>
