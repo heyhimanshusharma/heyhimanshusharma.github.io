@@ -13,52 +13,47 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            line-height: 1.6;
+            font-family: -apple-system, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', sans-serif;
+            line-height: 1.5;
             color: #333;
-            background-color: #fff;
+            background-color: #f5f5f7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         
-        /* Hand-drawn style */
-        .hand-drawn {
-            border: 2px solid #000;
-            border-radius: 8px;
-            padding: 10px 20px;
-            display: inline-block;
-            margin: 5px 0;
-            position: relative;
-            box-shadow: 2px 2px 0 rgba(0,0,0,0.1);
-        }
-
-        /* Two-column layout */
+        /* Container */
         .container {
             display: flex;
             min-height: 100vh;
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: #fff;
         }
         
         /* Left column - Profile */
         .left-column {
             width: 35%;
-            padding: 40px;
+            padding: 60px 40px;
+            background-color: #fff;
             position: relative;
-            border-right: 2px solid #000;
         }
         
         /* Right column - Content */
         .right-column {
             width: 65%;
-            padding: 40px;
+            padding: 60px 40px;
+            background-color: #fff;
         }
         
-        /* Profile picture circle */
+        /* Profile picture */
         .profile-pic {
-            width: 220px;
-            height: 220px;
-            border: 3px solid #000;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             overflow: hidden;
             margin: 0 auto 30px;
             display: block;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
         
         .profile-pic img {
@@ -67,71 +62,114 @@
             object-fit: cover;
         }
         
-        /* Typography with hand-drawn feel */
+        /* Typography */
         h1, h2, h3 {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #1d1d1f;
         }
         
         h1 {
             font-size: 2.5rem;
             margin-top: 20px;
+            font-weight: 700;
         }
         
         h2 {
-            font-size: 2rem;
-            margin-top: 40px;
-            border-bottom: 2px solid #000;
-            display: inline-block;
-            padding-bottom: 5px;
+            font-size: 1.75rem;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            color: #515154;
+            font-size: 1rem;
+            margin-bottom: 15px;
         }
         
         /* Project and blog cards */
         .card-container {
             margin: 20px 0 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
         }
         
         .card {
-            border: 2px solid #000;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            position: relative;
+            background-color: #fff;
+            padding: 25px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         }
         
         /* Skills */
         .skills-container {
             margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         
         .skill-tag {
-            border: 2px solid #000;
-            border-radius: 50px;
-            padding: 5px 15px;
-            margin: 5px;
-            display: inline-block;
+            background-color: #f5f5f7;
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            color: #515154;
+            transition: all 0.2s ease;
+        }
+        
+        .skill-tag:hover {
+            background-color: #e8e8ed;
         }
         
         /* Download resume button */
         .resume-btn {
-            border: 2px solid #000;
-            padding: 10px 20px;
-            margin-top: 20px;
+            background-color: #0071e3;
+            color: #fff;
+            padding: 12px 24px;
+            margin-top: 30px;
             display: inline-block;
             text-decoration: none;
-            color: #000;
-            font-weight: bold;
-            border-radius: 8px;
+            font-weight: 500;
+            border-radius: 30px;
+            transition: all 0.2s ease;
+        }
+        
+        .resume-btn:hover {
+            background-color: #0077ed;
+            text-decoration: none;
+            transform: scale(1.02);
         }
         
         /* Links */
         a {
-            color: #000;
+            color: #0071e3;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        a:hover {
+            color: #0077ed;
             text-decoration: underline;
         }
         
         .social-links {
             margin-top: 30px;
+            font-size: 0.95rem;
         }
         
         .social-links a {
@@ -141,13 +179,29 @@
         /* Divider line */
         .divider {
             width: 100%;
-            height: 2px;
-            background-color: #000;
-            margin: 40px 0;
+            height: 1px;
+            background-color: #d2d2d7;
+            margin: 60px 0 40px;
+        }
+        
+        /* Footer */
+        footer {
+            color: #86868b;
+            font-size: 0.9rem;
+        }
+        
+        footer p {
+            color: #86868b;
+            margin-bottom: 10px;
+        }
+        
+        footer a {
+            color: #515154;
+            margin-right: 15px;
         }
         
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .container {
                 flex-direction: column;
             }
@@ -156,9 +210,18 @@
                 width: 100%;
             }
             
-            .left-column {
-                border-right: none;
-                border-bottom: 2px solid #000;
+            .card-container {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .left-column, .right-column {
+                padding: 40px 25px;
+            }
+            
+            .card-container {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -172,16 +235,26 @@
             </div>
             
             <h1>Himanshu Sharma</h1>
-            <p style="font-size: 1.2rem; margin-bottom: 20px;">Robotics Engineer</p>
+            <p style="font-size: 1.1rem; margin-bottom: 25px; color: #86868b;">Robotics Engineer</p>
             
             <p>Hola! welcome to my space-time matrix. I'm a budding Automation & Robotics engineer and more importantly a perpetual learner. I love Art & Science and everything at their intersection like biomimicry, evolutionary design thinking, humanoids, etc.</p>
+            
+            <h2 style="margin-top: 30px;">About Me</h2>
+            <p>Ever since I was a kid I was interested in Astronomy and that interest branched me off into other subjects from philosophy to physics to maths to poetry and what not. Mostly my time is spent reading about evolution, biomechanics, some of it in writing, cooking, listening OSTs, etc. I believe in the human ingenuity and together we can make a better tomorrow.</p>
+            <p>"I have to understand the world, you see" — Richard Feynman</p>
+            
+            <h2 style="margin-top: 30px;">Get In Touch</h2>
+            <p>Interested in working together? Feel free to reach out:</p>
+            <p><a href="mailto:heyhimanshusharma@gmail.com">heyhimanshusharma@gmail.com</a></p>
             
             <a href="assets/A&R_Himanshu_Sharma.pdf" download class="resume-btn">Download Resume</a>
             
             <div class="social-links">
-                <a href="https://x.com/himanshjsharma" target="_blank">X</a> |
-                <a href="https://www.linkedin.com/in/himanshu-sharma-72a590272/" target="_blank">LinkedIn</a> |
                 <a href="https://github.com/heyhimanshusharma" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/himanshu-sharma-72a590272/" target="_blank">LinkedIn</a>
+                    <a href="https://x.com/himanshjsharma" target="_blank">X</a>
+                    <a href="https://www.pexels.com/@himanshu-sharma-2150254440/" target="_blank">Pexels</a>
+                    <a href="https://substack.com/@himanshusharma354221/" target="_blank">Substack</a>
             </div>
         </div>
         
@@ -235,27 +308,12 @@
                 <span class="skill-tag">Latex</span>
             </div>
             
-            <!-- About Me Section -->
-            <h2>About Me</h2>
-            <p>Ever since I was a kid I was interested in Astronomy and that interest branched me off into other subjects from philosophy to physcis to maths to poetry and what not. Mostly my time is spent reading about evolution, biomechanics, some of it in writing, cooking, listening OSTs, etc. I believe in the human ingenuity and together we can make a better tommorrow.</p>
-            <p>"I have to understand the world, you see" ~ Richard Feynman</p>
             
-            <!-- Contact Section -->
-            <h2>Get In Touch</h2>
-            <p>Interested in working together? Feel free to reach out :)</p>
-            <p><a href="mailto:heyhimanshusharma@gmail.com">heyhimanshusharma@gmail.com</a></p>
             
             <div class="divider"></div>
             
             <footer>
                 <p>© 2025 Himanshu Sharma. All rights reserved.</p>
-                <p>
-                    <a href="https://github.com/heyhimanshusharma" target="_blank">GitHub</a> |
-                    <a href="https://www.linkedin.com/in/himanshu-sharma-72a590272/" target="_blank">LinkedIn</a> |
-                    <a href="https://x.com/himanshjsharma" target="_blank">X (Twitter)</a> |
-                    <a href="https://www.pexels.com/@himanshu-sharma-2150254440/" target="_blank">Pexels</a> |
-                    <a href="https://substack.com/@himanshusharma354221/" target="_blank">Substack</a>
-                </p>
             </footer>
         </div>
     </div>
