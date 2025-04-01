@@ -104,29 +104,41 @@
         
         /* Hero section */
         .hero {
-            padding: 2rem 0 3rem;
-            text-align: center;
+            padding: 3rem 0 3rem;
+            text-align: left;
         }
 
-        .profile {
+        .profile-layout {
             display: flex;
-            flex-direction: column;
             align-items: center;
+            gap: 2rem;
             margin-bottom: 1.5rem;
         }
         
+        .profile-left {
+            flex-shrink: 0;
+        }
+        
+        .profile-right {
+            flex: 1;
+        }
+        
         .profile-pic {
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 1.2rem;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
         
+        .title {
+            margin-top: 0.3rem;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: #515154;
+        }
+        
         .bio {
-            max-width: 650px;
-            margin: 0 auto;
             font-size: 1.1rem;
         }
         
@@ -227,39 +239,39 @@
         
         /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
             .grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .profile-layout {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .profile-right {
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">Himanshu Sharma</div>
-            <div class="nav-links">
-                <a href="#projects">Projects</a>
-                <a href="#blogs">Blogs</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </nav>
-    </header>
+    <!-- Navigation header removed -->
     
     <main>
         <section class="hero">
             <div class="container">
-                <div class="profile">
-                    <img src="assets/Profile.jpg" alt="Himanshu Sharma" class="profile-pic">
-                    <h1>Himanshu Sharma</h1>
-                    <p>Robotics Engineer</p>
-                </div>
-                <div class="bio">
-                    <p>Hola! welcome to my space-time matrix. I'm a budding Automation & Robotics engineer and more importantly a perpetual learner. I love Art & Science and everything at their intersection like biomimicry, evolutionary design thinking, humanoids, etc.</p>
+                <div class="profile-layout">
+                    <div class="profile-left">
+                        <img src="assets/Profile.jpg" alt="Himanshu Sharma" class="profile-pic">
+                    </div>
+                    <div class="profile-right">
+                        <h1>Himanshu Sharma</h1>
+                        <p class="title">Robotics Engineer</p>
+                        <div class="bio">
+                            <p>Hola! welcome to my space-time matrix. I'm a budding Automation & Robotics engineer and more importantly a perpetual learner. I love Art & Science and everything at their intersection like biomimicry, evolutionary design thinking, humanoids, etc.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
