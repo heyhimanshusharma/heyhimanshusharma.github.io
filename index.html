@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Himanshu Sharma | Portfolio</title>
     <style>
         /* Reset and base styles */
         * {
@@ -16,359 +16,248 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             line-height: 1.6;
             color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             background-color: #fff;
         }
         
-        /* Typography */
-        h1, h2, h3 {
-            margin-bottom: 1rem;
-            font-weight: 600;
-            color: #111;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-top: 2rem;
-        }
-        
-        h2 {
-            font-size: 1.8rem;
-            margin-top: 2.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid #eee;
-        }
-        
-        p {
-            margin-bottom: 1.5rem;
-        }
-        
-        a {
-            color: #0366d6;
-            text-decoration: none;
-        }
-        
-        a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Layout components */
-        header {
-            margin-bottom: 0.5rem;
-            text-align: center;
-            width: 100%;
-            background-color: transparent;
-            padding: 1rem 0;
-            box-shadow: none;
-        }
-        
-        /* Content container to center all sections */
-        .content-container {
-            max-width: 900px;
-            width: 100%;
-            padding: 0 2rem;
-            background-color: transparent;
-            box-shadow: none;
-            border-radius: 0;
-            margin-bottom: 2rem;
-        }
-        
-        /* Profile container */
-        .profile-container {
+        /* Hand-drawn style */
+        .hand-drawn {
+            border: 2px solid #000;
+            border-radius: 8px;
+            padding: 10px 20px;
+            display: inline-block;
+            margin: 5px 0;
             position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 0.2rem;
-            padding-top: 15px;
-            padding-bottom: 5px;
-            width: 100%;
+            box-shadow: 2px 2px 0 rgba(0,0,0,0.1);
         }
 
-        /* Bio section */
-        section.bio {
-            margin-top: 0;
-            text-align: center;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+        /* Two-column layout */
+        .container {
+            display: flex;
+            min-height: 100vh;
         }
         
-        /* Profile picture container */
-        .profile-pic-container {
+        /* Left column - Profile */
+        .left-column {
+            width: 35%;
+            padding: 40px;
             position: relative;
-            width: 180px;
-            height: 180px;
+            border-right: 2px solid #000;
+        }
+        
+        /* Right column - Content */
+        .right-column {
+            width: 65%;
+            padding: 40px;
+        }
+        
+        /* Profile picture circle */
+        .profile-pic {
+            width: 220px;
+            height: 220px;
+            border: 3px solid #000;
             border-radius: 50%;
             overflow: hidden;
-            border: 4px solid white;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            z-index: 1;
-            background-image: url('assets/banner.jpg');
-            background-size: cover;
-            background-position: center;
+            margin: 0 auto 30px;
+            display: block;
         }
         
-        .profile-pic {
+        .profile-pic img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
         
-        .profile-info {
-            z-index: 1;
+        /* Typography with hand-drawn feel */
+        h1, h2, h3 {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin-bottom: 15px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-top: 20px;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-top: 40px;
+            border-bottom: 2px solid #000;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        
+        /* Project and blog cards */
+        .card-container {
+            margin: 20px 0 40px;
+        }
+        
+        .card {
+            border: 2px solid #000;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
             position: relative;
-            margin-top: 0.3rem;
-            background-color: transparent;
         }
         
-        .bio {
-            margin-bottom: 0.3rem;
-            font-size: 1.2rem;
-        }
-        
-        /* Projects section */
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-            width: 100%;
-        }
-        
-        .project-card {
-            border: 1px solid #eee;
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            background-color: transparent;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        }
-        
-        /* Blogs section */
-        .blogs {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-            width: 100%;
-        }
-        
-        .blog-card {
-            border: 1px solid #eee;
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            background-color: transparent;
-        }
-        
-        .blog-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        }
-        
-        .blog-date {
-            font-size: 0.85rem;
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Skills section */
-        .skills {
-            margin-bottom: 3rem;
-            width: 100%;
-        }
-        
-        .skill-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            justify-content: center;
+        /* Skills */
+        .skills-container {
+            margin: 20px 0;
         }
         
         .skill-tag {
-            background-color: #f1f8ff;
-            color: #0366d6;
-            padding: 0.4rem 0.8rem;
+            border: 2px solid #000;
             border-radius: 50px;
-            font-size: 0.9rem;
-        }
-        
-        /* Contact section */
-        .contact {
-            text-align: center;
-            margin-top: 2rem;
-            width: 100%;
-            padding: 1.5rem;
-            background-color: transparent;
-            border-radius: 0;
-        }
-        
-        /* Footer */
-        footer {
-            margin-top: 2rem;
-            text-align: center;
-            color: #666;
-            font-size: 0.9rem;
-            width: 100%;
-            padding: 1.5rem 0;
-            background-color: transparent;
-            box-shadow: none;
-        }
-        
-        /* Resume button styles */
-        .resume-btn {
+            padding: 5px 15px;
+            margin: 5px;
             display: inline-block;
-            background-color: #0366d6;
-            color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 4px;
-            margin-top: 0.5rem;
-            transition: background-color 0.2s ease;
         }
         
-        .resume-btn:hover {
-            background-color: #0250a0;
+        /* Download resume button */
+        .resume-btn {
+            border: 2px solid #000;
+            padding: 10px 20px;
+            margin-top: 20px;
+            display: inline-block;
             text-decoration: none;
+            color: #000;
+            font-weight: bold;
+            border-radius: 8px;
         }
         
-        .header-links {
-            margin-top: 1rem;
+        /* Links */
+        a {
+            color: #000;
+            text-decoration: underline;
         }
         
-        /* About Me section */
-        section h2 {
-            text-align: center;
+        .social-links {
+            margin-top: 30px;
         }
         
-        /* Responsive adjustments */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2rem;
+        .social-links a {
+            margin-right: 10px;
+        }
+        
+        /* Divider line */
+        .divider {
+            width: 100%;
+            height: 2px;
+            background-color: #000;
+            margin: 40px 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
             }
             
-            .projects, .blogs {
-                grid-template-columns: 1fr;
+            .left-column, .right-column {
+                width: 100%;
             }
             
-            .profile-container {
-                padding-top: 30px;
-                padding-bottom: 20px;
-            }
-            
-            .profile-pic-container {
-                width: 150px;
-                height: 150px;
-            }
-            
-            .content-container {
-                padding: 0 1rem;
+            .left-column {
+                border-right: none;
+                border-bottom: 2px solid #000;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="profile-container">
-            <div class="profile-pic-container">
-                <img src="assets/Profile.jpg" alt="Himanshu Sharma" class="profile-pic">
+    <div class="container">
+        <!-- Left Column - Profile Information -->
+        <div class="left-column">
+            <div class="profile-pic">
+                <img src="assets/Profile.jpg" alt="Himanshu Sharma">
             </div>
-            <div class="profile-info">
-                <h1>Himanshu Sharma</h1>
-                <p>Robotics Engineer</p>
+            
+            <h1>Himanshu Sharma</h1>
+            <p style="font-size: 1.2rem; margin-bottom: 20px;">Robotics Engineer</p>
+            
+            <p>Hola! welcome to my space-time matrix. I'm a budding Automation & Robotics engineer and more importantly a perpetual learner. I love Art & Science and everything at their intersection like biomimicry, evolutionary design thinking, humanoids, etc.</p>
+            
+            <a href="assets/A&R_Himanshu_Sharma.pdf" download class="resume-btn">Download Resume</a>
+            
+            <div class="social-links">
+                <a href="https://x.com/himanshjsharma" target="_blank">X</a> |
+                <a href="https://www.linkedin.com/in/himanshu-sharma-72a590272/" target="_blank">LinkedIn</a> |
+                <a href="https://github.com/heyhimanshusharma" target="_blank">GitHub</a>
             </div>
         </div>
-    </header>
-    
-    <div class="content-container">
-        <section class="bio">
-            <p>Hola! welcome to my space-time matrix. I'm a budding Automation & Robotics engineer and more importantly a perpetual learner. I love Art & Science and everything at their intersection like biomimicry, evolutionary design thinking, humanoids, etc.</p>
-        </section>
         
-        <section>
+        <!-- Right Column - Content -->
+        <div class="right-column">
+            <!-- Projects Section -->
             <h2>Projects</h2>
-            <div class="projects">
-                <div class="project-card">
+            <div class="card-container">
+                <div class="card">
                     <h3>Rover</h3>
                     <p>Designed and built a multifunctional rover inspired by perseverance but for agricultural tasks.</p>
                     <a href="https://github.com/heyhimanshusharma/Projects/tree/main/Rover">View Project →</a>
                 </div>
                 
-                <div class="project-card">
+                <div class="card">
                     <h3>Icon Pack</h3>
                     <p>Designed an Icon pack inspired by Nothing OS.</p>
                     <a href="https://github.com/heyhimanshusharma/Icon-Pack">View Project →</a>
                 </div>
-
-                <div class="project-card">
+                
+                <div class="card">
                     <h3>Manipulator</h3>
-                    <p>Building a robotic arm with teleoperation using gesture control using Esp32. </p>
+                    <p>Building a robotic arm with teleoperation using gesture control using Esp32.</p>
                     <a href="https://github.com/heyhimanshusharma/Projects/tree/main/Manipulator">View Project →</a>
                 </div>
-                
             </div>
-        </section>
-        
-        <section>
+            
+            <!-- Blogs Section -->
             <h2>Blogs</h2>
-            <div class="blogs">
-                <div class="blog-card">
-                    <p class="blog-date">March 9, 2025</p>
+            <div class="card-container">
+                <div class="card">
                     <h3>Why you are a Bioengineered Machine</h3>
                     <p>Exploring the metaphor of survival machines first coined by Richard Dawkins</p>
                     <a href="https://substack.com/home/post/p-158690228">Read More →</a>
                 </div>
                 
-                <div class="blog-card">
-                    <p class="blog-date">Upcoming</p>
+                <div class="card">
                     <h3>Exploring Evolutionary Design</h3>
                     <p>How natures design has inspired engineering designs</p>
+                    <p><em>Upcoming</em></p>
                 </div>
             </div>
-        </section>
-        
-        <section class="skills">
+            
+            <!-- Skills Section -->
             <h2>Skills & Tech</h2>
-            <div class="skill-list">
-                <span class="skill-tag">Fusion 360</span>
+            <div class="skills-container">
+                <span class="skill-tag">Figma</span>
                 <span class="skill-tag">Python</span>
                 <span class="skill-tag">MATLAB</span>
-                <span class="skill-tag">Figma</span>
+                <span class="skill-tag">Fusion 360</span>
                 <span class="skill-tag">Latex</span>
             </div>
-        </section>
-        
-        <section>
+            
+            <!-- About Me Section -->
             <h2>About Me</h2>
             <p>Ever since I was a kid I was interested in Astronomy and that interest branched me off into other subjects from philosophy to physcis to maths to poetry and what not. Mostly my time is spent reading about evolution, biomechanics, some of it in writing, cooking, listening OSTs, etc. I believe in the human ingenuity and together we can make a better tommorrow.</p>
             <p>"I have to understand the world, you see" ~ Richard Feynman</p>
-        </section>
-        
-        <section class="contact">
+            
+            <!-- Contact Section -->
             <h2>Get In Touch</h2>
             <p>Interested in working together? Feel free to reach out :)</p>
             <p><a href="mailto:heyhimanshusharma@gmail.com">heyhimanshusharma@gmail.com</a></p>
-            <p><a href="assets/A&R_Himanshu_Sharma.pdf" download class="resume-btn">Download My Resume</a></p>
-        </section>
+            
+            <div class="divider"></div>
+            
+            <footer>
+                <p>© 2025 Himanshu Sharma. All rights reserved.</p>
+                <p>
+                    <a href="https://github.com/heyhimanshusharma" target="_blank">GitHub</a> |
+                    <a href="https://www.linkedin.com/in/himanshu-sharma-72a590272/" target="_blank">LinkedIn</a> |
+                    <a href="https://x.com/himanshjsharma" target="_blank">X (Twitter)</a> |
+                    <a href="https://www.pexels.com/@himanshu-sharma-2150254440/" target="_blank">Pexels</a> |
+                    <a href="https://substack.com/@himanshusharma354221/" target="_blank">Substack</a>
+                </p>
+            </footer>
+        </div>
     </div>
-    
-    <footer>
-        <p>© 2025 Himanshu Sharma. All rights reserved.</p>
-        <p>
-            <a href="https://github.com/heyhimanshusharma" target="_blank">GitHub</a> |
-            <a href="https://www.linkedin.com/in/himanshu-sharma-72a590272/" target="_blank">LinkedIn</a> |
-            <a href="https://x.com/himanshjsharma" target="_blank">X (Twitter)</a> |
-            <a href="https://www.pexels.com/@himanshu-sharma-2150254440/" target="_blank">Pexels</a> |
-            <a href="https://substack.com/@himanshusharma354221/" target="_blank">Substack</a>
-        </p>
-    </footer>
 </body>
 </html>
