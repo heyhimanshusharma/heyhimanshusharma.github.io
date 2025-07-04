@@ -108,117 +108,41 @@
       text-align: justify;
     }
 
-    /* Loading state for typing animation */
-    .subtitle.loading {
-      min-height: 50px;
+    .books-section {
+      margin-top: 30px;
     }
 
-    /* Prevent text selection during typing animation */
-    .subtitle.typing {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    .books-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-      margin-top: 20px;
-    }
-
-    .book-card {
-      background-color: #ffffff;
-      border: 1px solid #e0e0e0;
-      border-radius: 12px;
-      padding: 25px;
-      transition: all 0.3s ease;
-      display: flex;
-      gap: 25px;
-      align-items: flex-start;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    }
-
-    .book-card:hover {
-      background-color: #f8f8f8;
-      border-color: #d0d0d0;
-      transform: translateY(-3px);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    }
-
-    .book-cover {
-      width: 120px;
-      height: 180px;
-      background: linear-gradient(135deg, #333333 0%, #666666 100%);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: bold;
-      font-size: 10px;
-      text-align: center;
-      flex-shrink: 0;
-      padding: 8px;
-      line-height: 1.2;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* For actual book cover images */
-    .book-cover img {
-      width: 115%;
-      height: 110%;
-      object-fit: cover;
-      border-radius: 4px;
-    }
-
-    .book-info {
-      flex: 1;
-      min-width: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .book-content {
-      flex: 1;
-    }
-
-    .book-title {
+    .section-title {
       font-size: 20px;
       font-weight: bold;
       color: #000000;
-      margin-bottom: 8px;
-      line-height: 1.3;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #e0e0e0;
     }
 
-    .book-author {
-      font-size: 16px;
-      color: #666666;
-      margin-bottom: 15px;
-      font-style: italic;
+    .books-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 40px;
     }
 
-    .book-description {
-      font-size: 15px;
+    .book-link {
+      font-size: 18px;
       color: #000000;
-      line-height: 1.6;
-      margin-bottom: 15px;
-      text-align: justify;
+      text-decoration: none;
+      padding: 6px 0;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      display: block;
     }
 
-    .book-quote {
-      font-size: 14px;
+    .book-link:hover {
       color: #333333;
-      font-style: italic;
-      padding: 12px 16px;
-      background-color: #f5f5f5;
-      border-left: 4px solid #cccccc;
-      line-height: 1.5;
-      border-radius: 0 4px 4px 0;
+      text-decoration: underline;
+      background-color: #f8f8f8;
+      padding-left: 8px;
     }
 
     footer {
@@ -315,32 +239,13 @@
         text-align: left;
       }
 
-      .book-card {
-        padding: 20px;
-        gap: 20px;
-      }
-
-      .book-cover {
-        width: 100px;
-        height: 150px;
-        font-size: 9px;
-      }
-
-      .book-title {
+      .section-title {
         font-size: 18px;
       }
 
-      .book-author {
-        font-size: 15px;
-      }
-
-      .book-description {
-        font-size: 14px;
-      }
-
-      .book-quote {
-        font-size: 13px;
-        padding: 10px 14px;
+      .book-link {
+        font-size: 16px;
+        padding: 5px 0;
       }
 
       main {
@@ -399,39 +304,13 @@
         margin-bottom: 25px;
       }
 
-      .book-card {
-        padding: 15px;
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-      }
-
-      .book-cover {
-        width: 80px;
-        height: 120px;
-        margin: 0 auto;
-        font-size: 8px;
-      }
-
-      .book-info {
-        text-align: left;
-      }
-
-      .book-title {
+      .section-title {
         font-size: 16px;
       }
 
-      .book-author {
-        font-size: 14px;
-      }
-
-      .book-description {
-        font-size: 13px;
-      }
-
-      .book-quote {
-        font-size: 12px;
-        padding: 8px 12px;
+      .book-link {
+        font-size: 15px;
+        padding: 4px 0;
       }
 
       main {
@@ -506,7 +385,8 @@
 
     /* Focus styles for accessibility */
     nav a:focus,
-    .social-links a:focus {
+    .social-links a:focus,
+    .book-link:focus {
       outline: 2px solid #000000;
       outline-offset: 2px;
     }
@@ -527,68 +407,27 @@
       </header>
 
       <main>
-        <div class="title">Favorite Books</div>
-        <div class="subtitle loading">
+        <div class="title">Books & Essays</div>
+        <div class="subtitle">
           "Books break the shackles of time. A book is proof that humans are capable of working magic." - Carl Sagan
         </div>
         
-        <div class="books-grid">
-          <div class="book-card">
-            <div class="book-cover">
-              <img src="assets/theselfishgene.jpg" alt="The Selfish Gene cover">
-            </div>
-            <div class="book-info">
-              <div class="book-content">
-                <div class="book-title">The Selfish Gene</div>
-                <div class="book-author">Richard Dawkins</div>
-                <div class="book-description">A revolutionary look at evolution from the gene's perspective. This book fundamentally changed how I view life and inspired my interest in biological machines.</div>
-              </div>
-              <div class="book-quote">"We are survival machines—robot vehicles blindly programmed to preserve the selfish molecules known as genes."</div>
-            </div>
+        <div class="books-section">
+          <div class="section-title">Favorite Books</div>
+          <div class="books-list">
+            <a href="https://www.goodreads.com/book/show/61535.The_Selfish_Gene" target="_blank" rel="noopener noreferrer" class="book-link">The Selfish Gene</a>
+            <a href="https://www.goodreads.com/book/show/55030.Cosmos" target="_blank" rel="noopener noreferrer" class="book-link">Cosmos</a>
+            <a href="https://www.goodreads.com/book/show/16176.The_Red_Queen" target="_blank" rel="noopener noreferrer" class="book-link">The Red Queen</a>
+            <a href="https://www.goodreads.com/book/show/45449488-how-innovation-works" target="_blank" rel="noopener noreferrer" class="book-link">How Innovation Works</a>
           </div>
+        </div>
 
-          <div class="book-card">
-            <div class="book-cover">
-              <img src="assets/cosmos.jpg" alt="Cosmos cover">
-            </div>
-            <div class="book-info">
-              <div class="book-content">
-                <div class="book-title">Cosmos</div>
-                <div class="book-author">Carl Sagan</div>
-                <div class="book-description">My gateway into astronomy and scientific thinking. Sagan's poetic approach to science continues to influence how I communicate complex ideas.</div>
-              </div>
-              <div class="book-quote">"We are made of star stuff."</div>
-            </div>
-          </div>
-
-          <div class="book-card">
-            <div class="book-cover">
-              <img src="assets/redqueen.jpg" alt="The Red Queen Cover">
-            </div>
-            <div class="book-info">
-              <div class="book-content">
-                <div class="book-title">The Red Queen</div>
-                <div class="book-author">Matt Ridley</div>
-                <div class="book-description">A fascinating exploration of theory of evolution and how humans are in an arms race with parasites, viruses predators, or rival suitors. Human nature, Ridley argues, is deeply shaped by the evolutionary need to reproduce successfully.</div>
-              </div>
-              <div class="book-quote">"In history and in evolution, progress is always a futile, Sisyphean struggle to stay in the same relative place by getting ever better at things.”</div>
-            </div>
-          </div>
-        
-          <div class="book-card">
-            <div class="book-cover">
-              <img src="assets/innovation.jpg" alt="How Innovation Works cover">
-            </div>
-            <div class="book-info">
-              <div class="book-content">
-                <div class="book-title">How Innovation Works</div>
-                <div class="book-author">Matt Ridley</div>
-                <div class="book-description">Matt Ridley by keeping evolution as his central theme for writing explains why free trade is crucial for accelerating progress.</div>
-              </div>
-              <div class="book-quote">"innovation is organic because it must be a response to an authentic and free desire, not what somebody in authority”.</div>
-            </div>
-          </div>
-            
+        <div class="books-section">
+          <div class="section-title">Essays & Articles</div>
+          <div class="books-list">
+            <a href="https://www.paulgraham.com/articles.html" target="_blank" rel="noopener noreferrer" class="book-link">Paul Graham's Essays</a>
+            <a href="https://waitbutwhy.com/" target="_blank" rel="noopener noreferrer" class="book-link">Wait But Why</a>
+            <a href="https://slatestarcodex.com/" target="_blank" rel="noopener noreferrer" class="book-link">Slate Star Codex</a>
           </div>
         </div>
       </main>
@@ -632,82 +471,5 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    // Enhanced typing animation with better mobile performance
-    const subtitle = document.querySelector('.subtitle');
-    const originalText = subtitle.innerHTML;
-    
-    // Check if user prefers reduced motion
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
-    if (prefersReducedMotion) {
-      // Skip animation for users who prefer reduced motion
-      subtitle.classList.remove('loading');
-    } else {
-      subtitle.classList.add('typing');
-      subtitle.innerHTML = '';
-      subtitle.classList.remove('loading');
-      
-      let i = 0;
-      const typingSpeed = window.innerWidth < 768 ? 10 : 15; // Faster on mobile
-      
-      function typeWriter() {
-        if (i < originalText.length) {
-          if (originalText.charAt(i) === '<') {
-            let tagEnd = originalText.indexOf('>', i);
-            if (tagEnd !== -1) {
-              subtitle.innerHTML += originalText.substring(i, tagEnd + 1);
-              i = tagEnd + 1;
-            } else {
-              subtitle.innerHTML += originalText.charAt(i);
-              i++;
-            }
-          } else {
-            subtitle.innerHTML += originalText.charAt(i);
-            i++;
-          }
-          
-          // Use requestAnimationFrame for better performance
-          if (i % 5 === 0) {
-            requestAnimationFrame(() => setTimeout(typeWriter, typingSpeed));
-          } else {
-            setTimeout(typeWriter, typingSpeed);
-          }
-        } else {
-          subtitle.classList.remove('typing');
-        }
-      }
-      
-      // Start typing animation after a short delay
-      setTimeout(typeWriter, 500);
-    }
-
-    // Add touch feedback for mobile devices
-    if ('ontouchstart' in window) {
-      document.querySelectorAll('nav a, .social-links a, .book-card').forEach(element => {
-        element.addEventListener('touchstart', function() {
-          this.style.transform = 'scale(0.98)';
-        });
-        
-        element.addEventListener('touchend', function() {
-          this.style.transform = 'scale(1)';
-        });
-        
-        element.addEventListener('touchcancel', function() {
-          this.style.transform = 'scale(1)';
-        });
-      });
-    }
-
-    // Optimize performance on resize
-    let resizeTimeout;
-    window.addEventListener('resize', function() {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(function() {
-        console.log('Window resized, layout adjusted');
-      }, 250);
-    });
-  </script>
 </body>
 </html>
