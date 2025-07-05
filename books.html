@@ -23,6 +23,16 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
+    /* Hide scrollbar for webkit browsers (Chrome, Safari, Edge) */
+    body::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Hide scrollbar for Firefox */
+    body {
+      scrollbar-width: none;
+    }
+
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -112,37 +122,74 @@
       margin-top: 30px;
     }
 
-    .section-title {
-      font-size: 20px;
-      font-weight: bold;
-      color: #000000;
-      margin-bottom: 20px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid #e0e0e0;
+    /* Toggle styles */
+    .toggle-section {
+      margin-bottom: 25px;
     }
 
-    .books-list {
+    .toggle-header {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: #000000;
+      transition: all 0.3s ease;
+      user-select: none;
+      padding: 8px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .toggle-header:hover {
+      color: #333333;
+    }
+
+    .toggle-arrow {
+      font-size: 14px;
+      transition: transform 0.3s ease;
+      color: #666666;
+    }
+
+    .toggle-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .toggle-content.active {
+      max-height: 500px;
+    }
+
+    .toggle-content .books-list {
+      padding: 10px 0;
       display: flex;
       flex-direction: column;
       gap: 4px;
-      margin-bottom: 40px;
+      margin: 0;
     }
 
     .book-link {
-      font-size: 18px;
+      font-size: 16px;
       color: #000000;
       text-decoration: none;
       padding: 6px 0;
-      border-radius: 4px;
       transition: all 0.3s ease;
       display: block;
+      border-left: 3px solid transparent;
+      margin-left: 20px;
     }
 
     .book-link:hover {
       color: #333333;
       text-decoration: underline;
       background-color: #f8f8f8;
+      border-left-color: #666666;
       padding-left: 8px;
+    }
+
+    .toggle-header.active .toggle-arrow {
+      transform: rotate(180deg);
     }
 
     footer {
@@ -239,13 +286,23 @@
         text-align: left;
       }
 
-      .section-title {
-        font-size: 18px;
+      .toggle-header {
+        font-size: 16px;
+        padding: 6px 0;
       }
 
       .book-link {
-        font-size: 16px;
+        font-size: 15px;
         padding: 5px 0;
+        margin-left: 16px;
+      }
+
+      .book-link:hover {
+        padding-left: 6px;
+      }
+
+      .toggle-content .books-list {
+        padding: 8px 0;
       }
 
       main {
@@ -304,13 +361,23 @@
         margin-bottom: 25px;
       }
 
-      .section-title {
-        font-size: 16px;
+      .toggle-header {
+        font-size: 15px;
+        padding: 5px 0;
       }
 
       .book-link {
-        font-size: 15px;
+        font-size: 14px;
         padding: 4px 0;
+        margin-left: 12px;
+      }
+
+      .book-link:hover {
+        padding-left: 5px;
+      }
+
+      .toggle-content .books-list {
+        padding: 6px 0;
       }
 
       main {
@@ -386,7 +453,8 @@
     /* Focus styles for accessibility */
     nav a:focus,
     .social-links a:focus,
-    .book-link:focus {
+    .book-link:focus,
+    .toggle-header:focus {
       outline: 2px solid #000000;
       outline-offset: 2px;
     }
@@ -412,22 +480,34 @@
         </div>
         
         <div class="books-section">
-          <div class="section-title">Favorite Books</div>
-          <div class="books-list">
-            <a href="https://en.wikipedia.org/wiki/On_the_Origin_of_Species" target="_blank" rel="noopener noreferrer" class="book-link">On the Origin of Species</a>
-            <a href="https://en.wikipedia.org/wiki/The_Selfish_Gene" target="_blank" rel="noopener noreferrer" class="book-link">The Selfish Gene</a>
-            <a href="https://en.wikipedia.org/wiki/Cosmos_(Sagan_book)" target="_blank" rel="noopener noreferrer" class="book-link">Cosmos</a>
-            <a href="https://en.wikipedia.org/wiki/The_Red_Queen:_Sex_and_the_Evolution_of_Human_Nature" target="_blank" rel="noopener noreferrer" class="book-link">The Red Queen</a>
-            <a href="https://www.mattridley.co.uk/books/how-innovation-works/" target="_blank" rel="noopener noreferrer" class="book-link">How Innovation Works</a>
+          <div class="toggle-section">
+            <div class="toggle-header" onclick="toggleSection(this)">
+              <span>Favorite Books</span>
+              <span class="toggle-arrow">▼</span>
+            </div>
+            <div class="toggle-content">
+              <div class="books-list">
+                <a href="https://en.wikipedia.org/wiki/On_the_Origin_of_Species" target="_blank" rel="noopener noreferrer" class="book-link">On the Origin of Species</a>
+                <a href="https://en.wikipedia.org/wiki/The_Selfish_Gene" target="_blank" rel="noopener noreferrer" class="book-link">The Selfish Gene</a>
+                <a href="https://en.wikipedia.org/wiki/Cosmos_(Sagan_book)" target="_blank" rel="noopener noreferrer" class="book-link">Cosmos</a>
+                <a href="https://en.wikipedia.org/wiki/The_Red_Queen:_Sex_and_the_Evolution_of_Human_Nature" target="_blank" rel="noopener noreferrer" class="book-link">The Red Queen</a>
+                <a href="https://www.mattridley.co.uk/books/how-innovation-works/" target="_blank" rel="noopener noreferrer" class="book-link">How Innovation Works</a>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div class="books-section">
-          <div class="section-title">Essays & Articles</div>
-          <div class="books-list">
-            <a href="https://webhomes.maths.ed.ac.uk/~v1ranick/papers/wigner.pdf" target="_blank" rel="noopener noreferrer" class="book-link">The Unreasonable Effectiveness of Mathematics in the Natural Sciences.</a>
-            <a href="https://www.inf.fu-berlin.de/lehre/pmo/eng/Dawkins-MindViruses.pdf" target="_blank" rel="noopener noreferrer" class="book-link">Viruses of the Mind</a>
-            <a href="https://web.ics.purdue.edu/~drkelly/MoriTheUncannyValley1970.pdf" target="_blank" rel="noopener noreferrer" class="book-link">The Uncanny Valley</a>
+          <div class="toggle-section">
+            <div class="toggle-header" onclick="toggleSection(this)">
+              <span>Essays & Articles</span>
+              <span class="toggle-arrow">▼</span>
+            </div>
+            <div class="toggle-content">
+              <div class="books-list">
+                <a href="https://webhomes.maths.ed.ac.uk/~v1ranick/papers/wigner.pdf" target="_blank" rel="noopener noreferrer" class="book-link">The Unreasonable Effectiveness of Mathematics in the Natural Sciences</a>
+                <a href="https://www.inf.fu-berlin.de/lehre/pmo/eng/Dawkins-MindViruses.pdf" target="_blank" rel="noopener noreferrer" class="book-link">Viruses of the Mind</a>
+                <a href="https://web.ics.purdue.edu/~drkelly/MoriTheUncannyValley1970.pdf" target="_blank" rel="noopener noreferrer" class="book-link">The Uncanny Valley</a>
+              </div>
+            </div>
           </div>
         </div>
       </main>
@@ -471,5 +551,23 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    function toggleSection(header) {
+      const content = header.nextElementSibling;
+      const arrow = header.querySelector('.toggle-arrow');
+      
+      // Toggle active state
+      header.classList.toggle('active');
+      content.classList.toggle('active');
+      
+      // Update arrow direction
+      if (content.classList.contains('active')) {
+        arrow.textContent = '▲';
+      } else {
+        arrow.textContent = '▼';
+      }
+    }
+  </script>
 </body>
 </html>
