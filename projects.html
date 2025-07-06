@@ -142,6 +142,9 @@
       border-radius: 0; /* Sharp corners */
       padding: 30px;
       transition: all 0.3s ease; /* Smooth transition for hover */
+      display: flex;
+      flex-direction: column;
+      height: 100%; /* Ensure all cards have equal height */
     }
 
     /* Project Card Hover State */
@@ -165,18 +168,22 @@
       line-height: 1.7;
       margin-bottom: 20px;
       text-align: justify;
+      flex-grow: 1; /* Allow description to grow and push link to bottom */
     }
 
-    /* Project Link Styles */
+    /* Project Link Styles - Fixed underline width */
     .project-link {
       color: #000000;
       text-decoration: none;
       font-size: 14px;
       font-weight: bold;
       transition: color 0.3s ease;
-      display: inline-block; /* Allows padding and border */
+      display: inline-block; /* Allows border-bottom to match text width */
       border-bottom: 1px solid #000000; /* Underline effect */
       padding-bottom: 2px;
+      margin-top: auto; /* Push link to bottom of card */
+      width: fit-content; /* Ensure the link only takes up as much width as needed */
+      align-self: flex-start; /* Align to the left of the flex container */
     }
 
     /* Project Link Hover State */
@@ -502,7 +509,6 @@
             <a href="https://github.com/heyhimanshusharma/Projects/tree/main/Manipulator" class="project-link" target="_blank">View Project →</a>
           </div>
 
-          <div class="projects-grid">
           <div class="project-card">
             <div class="project-title">Preview: PDF Viewer App</div>
             <div class="project-description">
@@ -526,7 +532,6 @@
             </div>
             <a href="https://github.com/heyhimanshusharma/Projects/tree/main/Rover" class="project-link" target="_blank">View Progress →</a>
           </div>
-            
         </div>
       </main>
     </div>
