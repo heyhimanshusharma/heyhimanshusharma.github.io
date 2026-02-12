@@ -123,13 +123,11 @@
       margin-top: 30px;
     }
 
-    /* Toggle styles */
-    .toggle-section {
+    .books-group {
       margin-bottom: 25px;
     }
 
-    .toggle-header {
-      cursor: pointer;
+    .section-title {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -137,32 +135,15 @@
       font-weight: bold;
       color: #000000;
       transition: all 0.3s ease;
-      user-select: none;
       padding: 8px 0;
       border-bottom: 1px solid #e0e0e0;
     }
 
-    .toggle-header:hover {
+    .section-title:hover {
       color: #333333;
     }
 
-    .toggle-arrow {
-      font-size: 14px;
-      transition: transform 0.3s ease;
-      color: #666666;
-    }
-
-    .toggle-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease;
-    }
-
-    .toggle-content.active {
-      max-height: 500px;
-    }
-
-    .toggle-content .books-list {
+    .books-list {
       padding: 10px 0;
       display: flex;
       flex-direction: column;
@@ -189,9 +170,6 @@
       padding-left: 8px;
     }
 
-    .toggle-header.active .toggle-arrow {
-      transform: rotate(180deg);
-    }
 
     footer {
       background-color: #f8f8f8;
@@ -306,9 +284,7 @@
         padding-left: 6px;
       }
 
-      .toggle-content .books-list {
-        padding: 8px 0;
-      }
+      
 
       main {
         padding: 25px 0;
@@ -366,10 +342,7 @@
         margin-bottom: 25px;
       }
 
-      .toggle-header {
-        font-size: 15px;
-        padding: 5px 0;
-      }
+      
 
       .book-link {
         font-size: 14px;
@@ -381,9 +354,7 @@
         padding-left: 5px;
       }
 
-      .toggle-content .books-list {
-        padding: 6px 0;
-      }
+      
 
       main {
         padding: 20px 0;
@@ -458,8 +429,7 @@
     /* Focus styles for accessibility */
     nav a:focus,
     .social-links a:focus,
-    .book-link:focus,
-    .toggle-header:focus {
+    .book-link:focus {
       outline: 2px solid #000000;
       outline-offset: 2px;
     }
@@ -485,13 +455,9 @@
         </div>
         
         <div class="books-section">
-          <div class="toggle-section">
-            <div class="toggle-header" onclick="toggleSection(this)">
-              <span>Favorite Books</span>
-              <span class="toggle-arrow">▼</span>
-            </div>
-            <div class="toggle-content">
-              <div class="books-list">
+          <div class="books-group">
+            <h3 class="section-title">Favorite Books</h3>
+            <div class="books-list">
                 <a href="https://en.wikipedia.org/wiki/On_the_Origin_of_Species" target="_blank" rel="noopener noreferrer" class="book-link">On the Origin of Species</a>
                 <a href="https://en.wikipedia.org/wiki/The_Selfish_Gene" target="_blank" rel="noopener noreferrer" class="book-link">The Selfish Gene</a>
                 <a href="https://en.wikipedia.org/wiki/Cosmos_(Sagan_book)" target="_blank" rel="noopener noreferrer" class="book-link">Cosmos</a>
@@ -507,13 +473,9 @@
             </div>
           </div>
 
-          <div class="toggle-section">
-            <div class="toggle-header" onclick="toggleSection(this)">
-              <span>Essays & Articles</span>
-              <span class="toggle-arrow">▼</span>
-            </div>
-            <div class="toggle-content">
-              <div class="books-list">
+          <div class="books-group">
+            <h3 class="section-title">Essays & Articles</h3>
+            <div class="books-list">
                 <a href="https://webhomes.maths.ed.ac.uk/~v1ranick/papers/wigner.pdf" target="_blank" rel="noopener noreferrer" class="book-link">The Unreasonable Effectiveness of Mathematics in the Natural Sciences</a>
                 <a href="https://www.inf.fu-berlin.de/lehre/pmo/eng/Dawkins-MindViruses.pdf" target="_blank" rel="noopener noreferrer" class="book-link">Viruses of the Mind</a>
                 <a href="https://web.ics.purdue.edu/~drkelly/MoriTheUncannyValley1970.pdf" target="_blank" rel="noopener noreferrer" class="book-link">The Uncanny Valley</a>
@@ -569,23 +531,5 @@
       <!-- <p>&copy; 2025 Himanshu Sharma. All rights reserved.</p> -->
     </div>
   </footer>
-
-  <script>
-    function toggleSection(header) {
-      const content = header.nextElementSibling;
-      const arrow = header.querySelector('.toggle-arrow');
-      
-      // Toggle active state
-      header.classList.toggle('active');
-      content.classList.toggle('active');
-      
-      // Update arrow direction
-      if (content.classList.contains('active')) {
-        arrow.textContent = '▲';
-      } else {
-        arrow.textContent = '▼';
-      }
-    }
-  </script>
 </body>
 </html>
