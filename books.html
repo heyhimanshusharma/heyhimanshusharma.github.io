@@ -21,7 +21,6 @@
       flex-direction: column;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      zoom: 0.95;
     }
 
     /* Hide scrollbar for webkit browsers (Chrome, Safari, Edge) */
@@ -41,9 +40,8 @@
     }
 
     .content-wrapper {
-      transform: scale(0.92);
-      transform-origin: top;
       flex: 1;
+      padding-bottom: 80px; /* space for fixed footer */
     }
 
     header {
@@ -199,8 +197,12 @@
       background-color: #f8f8f8;
       padding: 10px 0;
       text-align: center;
-      margin-top: auto;
       border-top: 1px solid #e0e0e0;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 50;
     }
 
     .social-links {
