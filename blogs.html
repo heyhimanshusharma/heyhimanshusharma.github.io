@@ -436,10 +436,34 @@
       }
     }
 
-    /* Loading state for typing animation */
+    /* Loading state for typing animation — no min-height so the
+       container shrinks to fit the actual text, removing the gap. */
     .description.loading {
-      min-height: 100px; /* Prevent layout shift during typing */
+      min-height: auto;
     }
+
+    /* Blog card entrance animation — CSS-driven so cards are never
+       invisible to the layout engine, preventing the white-gap CLS. */
+    @keyframes cardEntrance {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .blog-card {
+      animation: cardEntrance 0.6s ease forwards;
+    }
+
+    /* Stagger each blogs-grid's card using nth-child on their parent divs */
+    main > div:nth-child(2) .blog-card { animation-delay: 0.1s; }
+    main > div:nth-child(3) .blog-card { animation-delay: 0.2s; }
+    main > div:nth-child(4) .blog-card { animation-delay: 0.3s; }
+    main > div:nth-child(5) .blog-card { animation-delay: 0.4s; }
 
     /* Smooth scrolling for all elements */
     html {
@@ -537,7 +561,7 @@
             <path d="M1.5 0h21A1.5 1.5 0 0124 1.5v21a1.5 1.5 0 01-1.5 1.5h-21A1.5 1.5 0 010 22.5v-21A1.5 1.5 0 011.5 0zM7 9a2 2 0 100-4 2 2 0 000 4zm13.5 9.5v-7c0-2.5-2-4.5-4.5-4.5s-4.5 2-4.5 4.5v7h9zM2.5 16.5h4v-4c0-.3.2-.5.5-.5s.5.2.5.5v4.5c0 .3-.2.5-.5.5H2.5c-.3 0-.5-.2-.5-.5s.2-.5.5-.5z"/>
           </svg>
         </a>
-        <a href="mailto:heyhimanshusharma@gmail.com" target="_blank" rel="noopener noreferrer" title="Gmail">
+        <a href="/cdn-cgi/l/email-protection#59313c2031303438372a312c2a31382b3438193e34383035773a3634" target="_blank" rel="noopener noreferrer" title="Gmail">
           <svg viewBox="0 0 24 24">
             <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
           </svg>
@@ -559,7 +583,7 @@
     </div>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // This script ensures that any links intended for internal page sections
     // will smoothly scroll the user to that section. Since this page will
     // primarily navigate to other full HTML pages, this part of the script
@@ -657,32 +681,9 @@
       });
     }
 
-    // Animate blog cards on scroll using Intersection Observer.
-    // Cards will fade in and slide up as they enter the viewport.
-    const observerOptions = {
-      threshold: 0.1, // Trigger when 10% of the element is visible
-      rootMargin: '0px 0px -50px 0px' // Slightly reduce bottom margin to trigger earlier
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
-          // Optionally, stop observing once animated to save resources
-          // observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    // Initially hide cards and set up the observer.
-    document.querySelectorAll('.blog-card').forEach((card, index) => {
-      card.style.opacity = '0'; // Start invisible
-      card.style.transform = 'translateY(20px)'; // Start slightly below final position
-      // Apply a staggered transition effect
-      card.style.transition = `opacity 0.6s ease ${0.1 * index}s, transform 0.6s ease ${0.1 * index}s`;
-      observer.observe(card); // Start observing each card
-    });
+    // Blog cards use CSS animation (defined in <style>) so no JS-driven
+    // opacity:0 is applied. This prevents the layout-shift white gap that
+    // occurred when the IntersectionObserver fired asynchronously.
 
     // Optimize performance on window resize events.
     // This prevents frequent re-calculations during continuous resizing.
@@ -691,9 +692,4 @@
       clearTimeout(resizeTimeout); // Clear any existing timeout
       resizeTimeout = setTimeout(function() {
         // Placeholder for any dynamic recalculations needed on resize.
-        console.log('Window resized, layout adjusted for blogs.html');
-      }, 250); // Wait 250ms after resize stops before executing
-    });
-  </script>
-</body>
-</html>
+        console.lo
