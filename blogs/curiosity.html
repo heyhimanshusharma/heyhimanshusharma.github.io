@@ -221,6 +221,32 @@
       font-size: 14px;
     }
 
+    /* Force all link states to use the same color to avoid visited/unvisited color mismatch */
+    .blog-content a,
+    .back-to-blogs a,
+    .footnote-item a {
+      color: #4a90e2;
+      text-decoration: underline;
+    }
+
+    .blog-content a:hover,
+    .blog-content a:focus,
+    .blog-content a:active,
+    .back-to-blogs a:hover,
+    .back-to-blogs a:focus,
+    .back-to-blogs a:active,
+    .footnote-item a:hover,
+    .footnote-item a:focus,
+    .footnote-item a:active {
+      color: #b90b2e;
+    }
+
+    .blog-content a:visited,
+    .back-to-blogs a:visited,
+    .footnote-item a:visited {
+      color: #000000;
+    }
+
     .blog-content pre {
       background-color: #f4f4f4;
       padding: 20px;
@@ -802,10 +828,6 @@
                 </div>
                 <div class="footnote-item" id="fn-1">
                   <span class="footnote-number">[6]</span>
-                  <a href="https://moretothat.com/true-learning-is-done-with-agency/" target="_blank" rel="noopener noreferrer">True learning is done with agency</a>
-                </div>
-                <div class="footnote-item" id="fn-2">
-                  <span class="footnote-number">[7]</span>
                   <a href="https://moretothat.com/true-learning-is-done-with-agency/" target="_blank" rel="noopener noreferrer">True learning is done with agency</a>
                 </div>
               </div>
